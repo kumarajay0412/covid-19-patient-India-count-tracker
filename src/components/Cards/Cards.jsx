@@ -5,9 +5,8 @@ import cx from 'classnames';
 
 import styles from './Cards.module.css';
 
-const Info = (props) => {
-  //console.log(props.data.total)
-  if (props) {
+const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+  if (!confirmed) {
     return 'Loading...';
   }
 
@@ -20,10 +19,11 @@ const Info = (props) => {
               Infected
             </Typography>
             <Typography variant="h5" component="h2">
-              {console.log(props.data.total)}
-             {props.data.total}
+              <CountUp start={0} end={confirmed.value} duration={2.75} separator="," />
             </Typography>
-            
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
             <Typography variant="body2" component="p">
               Number of active cases of COVID-19.
             </Typography>
@@ -35,9 +35,11 @@ const Info = (props) => {
               Recovered
             </Typography>
             <Typography variant="h5" component="h2">
-              {props.data.discharged} 
+              <CountUp start={0} end={recovered.value} duration={2.75} separator="," />
             </Typography>
-          
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
             <Typography variant="body2" component="p">
               Number of recoveries from COVID-19.
             </Typography>
@@ -49,8 +51,10 @@ const Info = (props) => {
               Deaths
             </Typography>
             <Typography variant="h5" component="h2">
-  
-                {props.data.deaths}
+              <CountUp start={0} end={deaths.value} duration={2.75} separator="," />
+            </Typography>
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
             </Typography>
             <Typography variant="body2" component="p">
               Number of deaths caused by COVID-19.
