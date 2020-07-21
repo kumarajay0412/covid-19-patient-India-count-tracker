@@ -8,8 +8,9 @@ body{
     flex-direction: column;
 }
 .image{
-    width:370px;
-    margin-top: 50px;
+    width:1000px;
+    height: 220px;
+    margin-top: 5px;
 }
 @media only screen and (max-width: 770px) {
     .container {
