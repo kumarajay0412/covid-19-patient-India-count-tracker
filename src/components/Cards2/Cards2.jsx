@@ -7,15 +7,15 @@ import styles from './Cards2.module.css';
 
 const Info = (data) => {
   //console.log(props.data.total)
-  console.log(data)
+  console.log(data["data"].confirmedCasesIndian)
   if (!data) {
     return 'Loading...';
   }
   if(data["data"]["data"]!=null){
     
-    var TOTAL = data["data"]["data"]["summary"].total;
-    var RECOVERED= data["data"]["data"]["summary"].discharged;
-    var DEATHS= data["data"]["data"]["summary"].deaths;
+    var TOTAL = data["data"].confirmedCasesIndian;
+    var RECOVERED= data["data"].discharged;
+    var DEATHS= data["data"].deaths;
   }  
   return (
 
@@ -23,17 +23,13 @@ const Info = (data) => {
       <Grid container spacing={3} justify="center">
         <Grid item xs={12} md={3} component={Card} className={cx(styles.card, styles.infected)}>
           <CardContent>
-    
             <Typography color="textSecondary" gutterBottom>
               Infected
             </Typography>
      
             <Typography variant="h5" component="h2">
-              {TOTAL}
-            </Typography>
-
-            <Typography color="textSecondary">
-              {new Date(data["data"]["lastRefreshed"]).toDateString()}
+          
+              {data["data"].confirmedCasesIndian}
             </Typography>
             <Typography variant="body2" component="p">
               Number of active cases of COVID-19.
@@ -46,11 +42,9 @@ const Info = (data) => {
               Recovered
             </Typography>
             <Typography variant="h5" component="h2">
-              {RECOVERED}
+              {data["data"].discharged}
             </Typography>
-            <Typography color="textSecondary">
-              {new Date(data["data"]["lastRefreshed"]).toDateString()}
-            </Typography>
+        
             <Typography variant="body2" component="p">
               Number of recoveries from COVID-19.
             </Typography>
@@ -62,11 +56,9 @@ const Info = (data) => {
               Deaths
             </Typography>
             <Typography variant="h5" component="h2">
-             {DEATHS}   
+             {data["data"].deaths}   
             </Typography>
-            <Typography color="textSecondary">
-              {new Date(data["data"]["lastRefreshed"]).toDateString()}
-            </Typography>
+          
             <Typography variant="body2" component="p">
               Number of deaths caused by COVID-19.
             </Typography>

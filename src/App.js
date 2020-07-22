@@ -19,19 +19,20 @@ class App extends React.Component {
   handleCountryChange = async (country) => {
     const data = await fetchData();
     console.log(country)
-    
     console.log(data["data"]["regional"][country])
-    this.setState({ data, country: country });
+    this.setState({ data, country: data["data"]["regional"][country] });
   }
 
   render() {
     const { data, country } = this.state;
+    
 
     return (
       <div className={styles.container}>
         <img className={styles.image} src={image} alt="COVID-19" />
+  
         <Cards data={data}/>
-        <CountryPicker/>
+        <CountryPicker handleCountryChange={this.handleCountryChange}/>
         <Cards2 data={country}/>
         <Chart data={data} country={country} /> 
       </div>

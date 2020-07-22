@@ -6,7 +6,7 @@ import cx from 'classnames';
 import styles from './Cards.module.css';
 
 const Info = (data) => {
-  //console.log(props.data.total)
+  console.log(data["data"])
   console.log(data)
   if (!data) {
     return 'Loading.@..';
