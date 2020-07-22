@@ -1,21 +1,12 @@
 import React from 'react';
 import { Card,Cards2, CardContent, Typography, Grid } from '@material-ui/core';
-import CountUp from 'react-countup';
 import cx from 'classnames';
-
+import CountTo from 'react-count-to';
 import styles from './Cards2.module.css';
 
 const Info = (data) => {
-  //console.log(props.data.total)
-  console.log(data["data"].confirmedCasesIndian)
   if (!data) {
     return 'Loading...';
-  }
-  if(data["data"]["data"]!=null){
-    
-    var TOTAL = data["data"].confirmedCasesIndian;
-    var RECOVERED= data["data"].discharged;
-    var DEATHS= data["data"].deaths;
   }  
   return (
 
@@ -28,8 +19,8 @@ const Info = (data) => {
             </Typography>
      
             <Typography variant="h5" component="h2">
-          
-              {data["data"].confirmedCasesIndian}
+            {<CountTo to={data["data"].confirmedCasesIndian} speed={2000} />}
+              
             </Typography>
             <Typography variant="body2" component="p">
               Number of active cases of COVID-19.
@@ -42,7 +33,8 @@ const Info = (data) => {
               Recovered
             </Typography>
             <Typography variant="h5" component="h2">
-              {data["data"].discharged}
+            {<CountTo to={data["data"].discharged} speed={2000} />}
+       
             </Typography>
         
             <Typography variant="body2" component="p">
@@ -56,7 +48,8 @@ const Info = (data) => {
               Deaths
             </Typography>
             <Typography variant="h5" component="h2">
-             {data["data"].deaths}   
+            {<CountTo to={data["data"].deaths} speed={2000} />}
+     
             </Typography>
           
             <Typography variant="body2" component="p">

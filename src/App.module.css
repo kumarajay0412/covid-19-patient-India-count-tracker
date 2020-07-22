@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(250,250,250);
+    background-color: rgb(199, 216, 230);
 }
 .container{
     display: flex;
@@ -8,7 +8,8 @@ body{
     flex-direction: column;
 }
 .image{
-    width:370px;
+    width:570px;
+
     margin-top: 50px;
 }
 @media only screen and (max-width: 770px) {

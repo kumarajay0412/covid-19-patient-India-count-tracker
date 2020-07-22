@@ -1,13 +1,12 @@
 import React from 'react';
 import { Card, CardContent, Typography, Grid } from '@material-ui/core';
-import CountUp from 'react-countup';
+import CountTo from 'react-count-to';
 import cx from 'classnames';
 
 import styles from './Cards.module.css';
 
 const Info = (data) => {
-  console.log(data["data"])
-  console.log(data)
+
   if (!data) {
     return 'Loading.@..';
   }
@@ -29,7 +28,7 @@ const Info = (data) => {
             </Typography>
      
             <Typography variant="h5" component="h2">
-              {TOTAL}
+              {<CountTo to={TOTAL} speed={2000} />}
             </Typography>
 
             <Typography color="textSecondary">
@@ -46,7 +45,7 @@ const Info = (data) => {
               Recovered
             </Typography>
             <Typography variant="h5" component="h2">
-              {RECOVERED}
+            {<CountTo to={RECOVERED} speed={2000} />}
             </Typography>
             <Typography color="textSecondary">
               {new Date(data["data"]["lastRefreshed"]).toDateString()}
@@ -62,7 +61,7 @@ const Info = (data) => {
               Deaths
             </Typography>
             <Typography variant="h5" component="h2">
-             {DEATHS}   
+            {<CountTo to={DEATHS} speed={2000} />} 
             </Typography>
             <Typography color="textSecondary">
               {new Date(data["data"]["lastRefreshed"]).toDateString()}

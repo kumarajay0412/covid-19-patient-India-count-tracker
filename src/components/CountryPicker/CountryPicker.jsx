@@ -21,7 +21,9 @@ const Countries = ({ handleCountryChange }) => {
         <option value="">SELECT STATE</option>
         {countries.map((country, i) => <option key={i} value={i}>{""}{country}</option>)}
       </NativeSelect>
+
     </FormControl>
+
   );
 };
 
