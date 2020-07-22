@@ -1,15 +1,15 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
+import { Card,Cards2, CardContent, Typography, Grid } from '@material-ui/core';
 import CountUp from 'react-countup';
 import cx from 'classnames';
 
-import styles from './Cards.module.css';
+import styles from './Cards2.module.css';
 
 const Info = (data) => {
   //console.log(props.data.total)
   console.log(data)
   if (!data) {
-    return 'Loading.@..';
+    return 'Loading...';
   }
   if(data["data"]["data"]!=null){
     
