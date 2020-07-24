@@ -24,7 +24,6 @@ class App extends React.Component {
 
   render() {
     const { data, country } = this.state;
-    
 
     return (
       <div className={styles.container}>
@@ -32,8 +31,9 @@ class App extends React.Component {
   
         <Cards data={data}/>
         <CountryPicker handleCountryChange={this.handleCountryChange}/>
-        <Cards2 data={country}/>
+        
         <Chart data= {country} /> 
+        <Cards2 data={country}/>
       </div>
     );
   }
